@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Biodata</title>
+</head>
+ <link rel="shortcut icon" href="./gambar/img.png">
+
+ <script type="text/javascript" src="script.js" defer></script>
+ <link rel="stylesheet" href="style.css">
+
+<body>
+
+<div id="form">
+  <div id="header">
+  <img src="./gambar/img.png" height="75" alt="Logo">
+				</div>
+  <div id="tengah">   
+      <input type="text" class="input" placeholder="Masukan Nama" id="nama">
+      <input type="text" class="input" placeholder="Masukan Tempat Lahir" id="tmp">
+      <input type="date" class="input" placeholder="Masukan Tanggal Lahir" id="ttl">
+      <span class="radio">Gender :</span>
+      <input type="radio" class="radio" name='jk' id="jk" value="L"><span>Laki-laki</span>
+      <input type="radio" name='jk' id="jk" value="P"><span>Perempuan</span><br>
+      <span class="radio">Hobby :</span>
+      <input type="checkbox" name='hobby' class="hobby" id="berenang" value="Berenang"><span>Berenang</span>
+      <input type="checkbox" name="hobby" class="hobby" id="jogging" value="Jogging"><span>Jogging</span>
+      <input type="checkbox" name="hobby" class="hobby" id="bersepeda" value="Bersepeda"><span>Bersepeda</span>
+      <input type="checkbox" name="hobby" class="hobby" id="futsal" value="Futsal"><span>Futsal</span>
+      <select id="agama" class="input">
+        <option>-- Pilih Agama --</option>
+        <option value="Islam">Islam</option>
+        <option value="Kristen">Kristen</option>
+        <option value="Hindu">Hindu</option>
+        <option value="Budha">Budha</option>
+    </select>
+      <textarea id="alamat" class="input" placeholder="Masukan Alamat"></textarea>
+      <button type="button" onclick="aturInput()" class="button"><span id="buttonSave">Simpan</span></button>
+  </div>
+</div>
+
+<div id="tabel">
+  <div id="header">
+    <img src="./gambar/img.png" height="75" alt="Logo">
+          </div>
+                            <select id="selectPencarianData" width="90">
+                             <option value="nama">Cari Berdasarkan Nama</option>
+                             <option value="alamat">Cari Berdasarkan Alamat</option>
+                             <option value="hobi">Cari Berdasarkan Hobi</option>
+                  </select>
+                      <input type="text" placeholder="Masukan Kata Kunci Pencarian" id="pencarianData" size="75"><hr>
+
+<table>
+      <tr>
+        <th width="30">No.</th>
+        <th>Nama</th>
+        <th>TTL</th>
+        <th>Umur</th>
+        <th>JK</th>
+        <th>Hobby</th>
+        <th>Agama</th>
+        <th>Alamat</th>
+        <th>Action</th>
+      </tr>
+      <tbody id="isi">
+            
+        </tbody>
+     </table>
+     <input type="button" id="first" onclick="firstPage()" value="Awal" />
+        <input type="button" id="previous" onclick="previousPage()" value="<- Kembali" />
+        <input type="button" id="next" onclick="nextPage()" value="Lanjut ->" />
+        <input type="button" id="last" onclick="lastPage()" value="Akhir" />
+</div>
+
+</body>
+</html>
