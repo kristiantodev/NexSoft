@@ -27,7 +27,7 @@
       <input type="checkbox" name="hobby" class="hobby" id="bersepeda" value="Bersepeda"><span>Bersepeda</span>
       <input type="checkbox" name="hobby" class="hobby" id="futsal" value="Futsal"><span>Futsal</span>
       <select id="agama" class="input">
-        <option>-- Pilih Agama --</option>
+        <option value="">-- Pilih Agama --</option>
         <option value="Islam">Islam</option>
         <option value="Kristen">Kristen</option>
         <option value="Hindu">Hindu</option>
@@ -42,12 +42,16 @@
   <div id="header">
     <img src="./gambar/img.png" height="75" alt="Logo">
           </div>
-                            <select id="selectPencarianData" width="90">
+                            <select id="jenisPencarian" width="90">
                              <option value="nama">Cari Berdasarkan Nama</option>
                              <option value="alamat">Cari Berdasarkan Alamat</option>
                              <option value="hobi">Cari Berdasarkan Hobi</option>
                   </select>
-                      <input type="text" placeholder="Masukan Kata Kunci Pencarian" id="pencarianData" size="75"><hr>
+                      <input type="text" placeholder="Masukan Kata Kunci Pencarian" id="kataKunci" size="75"><hr>
+                      <input type="button" id="first" onclick="firstPage()" value="Awal Halaman" />
+        <input type="button" id="previous" onclick="previousPage()" value="<- Kembali" />
+        <input type="button" id="next" onclick="nextPage()" value="Lanjut ->" />
+        <input type="button" id="last" onclick="lastPage()" value="Akhir Halaman" />
 
 <table>
       <tr>
@@ -65,10 +69,7 @@
             
         </tbody>
      </table>
-     <input type="button" id="first" onclick="firstPage()" value="Awal" />
-        <input type="button" id="previous" onclick="previousPage()" value="<- Kembali" />
-        <input type="button" id="next" onclick="nextPage()" value="Lanjut ->" />
-        <input type="button" id="last" onclick="lastPage()" value="Akhir" />
+        
 </div>
 
 </body>

@@ -8,13 +8,13 @@ let agama = document.getElementById('agama');
 let alamat = document.getElementById('alamat');
 var jk = document.getElementsByName('jk');
 const hobby = document.querySelectorAll('.hobby');
-const pencarianData= document.querySelector('#pencarianData');
-var dataCari = document.querySelector('#selectPencarianData');
+const pencarianData= document.querySelector('#kataKunci');
+var dataCari = document.querySelector('#jenisPencarian');
 let people = [];
 var peopleList = [];
 var currentPage = 1;
 var numberPerPage = 4;
-var numberOfPages = 0;
+var numberOfPages = Math.ceil((people.length)/numberPerPage);
 
 dataDummy();
 tampilData();
@@ -24,14 +24,19 @@ function aturInput(){
 
     if (button.innerHTML === "Simpan") {
 
-    if (alamat.value.length > 0 && nama.value.length > 0 && ttl.value.length >0 && tmp.value.length > 0 ) {
+    if (alamat.value.length > 0 && nama.value.length > 0 && ttl.value.length >0 && tmp.value.length > 0 && agama.value != "") {
         inputData();
     }else{
         alert("Data harus diisi secara lengkap !!");
     }
 
 }else{
-    editData(button.getAttribute("data-type"));
+    if (alamat.value.length > 0 && nama.value.length > 0 && ttl.value.length >0 && tmp.value.length > 0 && agama.value != "") {
+        editData(button.getAttribute("data-type"));
+    }else{
+        alert("Data harus diisi secara lengkap !!");
+    }
+    
 }
 
 }
@@ -142,6 +147,15 @@ function editClick(id){
         }
     }
 
+    let arrayHob = people[person].hobby;
+    arrayHob.forEach(element => {
+        hobby.forEach(el => {
+            if(el.value == element){
+                el.checked = true;
+            }
+        });
+    });
+
 	button.innerHTML = "Update";
 	button.setAttribute("data-type", person);
 }
@@ -205,11 +219,11 @@ function dataDummy(){
     for(let i=0; i<10;i++){
     let person = {
         id: personId,
-        nama: "Kristianto",
+        nama: "Kristianto"+i,
         tempat:"Cirebon",
         ttl : "1998-11-11",
         jk : "L",
-        hobby : "Jogging",
+        hobby : ["Bersepeda"],
         agama : "Islam",
         alamat :"Jl. Otista",
         umur : "22"
@@ -244,28 +258,30 @@ pencarianData.addEventListener("keyup", (el) => {
         if (keyword == "") {
             tampilData();
         }else{
-            let searchItem = people.filter((item) => {
+            peopleList = people.filter((item) => {
                 return item.nama == keyword;
             });
-            searchData(searchItem);
+
+            showData();
         }
     }else if(dataCari.value == "alamat"){
         if (keyword == "") {
             tampilData();
         }else{
-            let searchItem = people.filter((item) => {
+            peopleList = people.filter((item) => {
                 return item.alamat == keyword;
             });
-            searchData(searchItem);
+
+            showData();
         }
     }else{
         if (keyword == "") {
             tampilData();
         }else{
-            let searchItem = people.filter((item) => {
-                return item.hobi == keyword;
+            peopleList = people.filter((item) => {
+                return item.hobby == keyword;
             });
-            searchData(searchItem);
+            showData();
         }
     }
 });
@@ -309,10 +325,10 @@ check();
 }
 
 function check() {
-document.getElementById("next").disabled = currentPage == numberOfPages ? true : false;
-document.getElementById("previous").disabled = currentPage == 1 ? true : false;
 document.getElementById("first").disabled = currentPage == 1 ? true : false;
-document.getElementById("last").disabled = currentPage == numberOfPages ? true : false;
+document.getElementById("next").disabled = currentPage == Math.ceil((people.length)/numberPerPage) ? true : false;
+document.getElementById("previous").disabled = currentPage == 1 ? true : false;
+document.getElementById("last").disabled = currentPage == Math.ceil((people.length)/numberPerPage)  ? true : false;
 }
 
 function nextPage() {
@@ -331,6 +347,6 @@ tampilData();
 }
 
 function lastPage() {
-currentPage = (people.length)/4;
+currentPage = Math.ceil((people.length)/numberPerPage);
 tampilData();
 }
