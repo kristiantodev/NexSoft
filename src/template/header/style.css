@@ -1,0 +1,13 @@
+.header{
+    background-color: #008CBA;
+    color: white;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    border: 1px solid #cfdefa;
+    position: absolute;
+    height: 40px;
+    width: 96%;
+    padding: 2vh 3vh;
+    justify-content: center;
+}
