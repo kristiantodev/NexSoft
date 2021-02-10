@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./style.css"
 
-class Texarea extends Component {
+class Textarea extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -10,10 +10,11 @@ class Texarea extends Component {
     }
 
     render() {
+        const { name, onChange, placeholder, value} = this.props
         return (
           <>
 
-    <textarea id="alamat" className="input" placeholder="Masukan Alamat"></textarea>
+      <textarea className="input" name={name} onChange={onChange} placeholder={placeholder} value={value} />
 
       </>
 
@@ -21,4 +22,4 @@ class Texarea extends Component {
     }
 }
 
-export default Texarea;
+export default Textarea;

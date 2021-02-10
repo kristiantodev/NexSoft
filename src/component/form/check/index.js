@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./style.css"
 
-class Submit extends Component {
+class Check extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -9,11 +9,13 @@ class Submit extends Component {
            }
     }
 
+
     render() {
+        const { type, name, onClick, value} = this.props
         return (
           <>
 
-          <button type="submit" className="button"><span id="buttonSave">Simpan</span></button>
+      <input type={type} name={name} onClick={onClick} value={value} />
 
       </>
 
@@ -21,4 +23,4 @@ class Submit extends Component {
     }
 }
 
-export default Submit;
+export default Check;

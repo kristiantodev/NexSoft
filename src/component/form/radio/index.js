@@ -10,11 +10,11 @@ class Radio extends Component {
     }
 
     render() {
+        const { type, name, onChange, value} = this.props
         return (
           <>
 
-      <input type="radio" className="radio" name='jk' id="jk" value="L"/><span>Laki-laki</span>
-      <input type="radio" name='jk' id="jk" value="P"/><span>Perempuan</span><br/>
+      <input type={type} name={name} checked={this.props.checked} onChange={onChange} value={value} />
 
       </>
 

@@ -10,10 +10,11 @@ class Input extends Component {
     }
 
     render() {
+        const { type, name, onChange, placeholder, value } = this.props
         return (
           <>
 
-      <input type={this.props.type} className="input" name={this.props.name} id={this.props.id} placeholder="Masukan Nama"/>
+      <input type={type} className="input" name={name} onChange={onChange} placeholder={placeholder} value={value}/>
 
       </>
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import "./style.css"
+import "./style.css";
+
 
 class Isitabel extends Component {
     constructor(props) {
