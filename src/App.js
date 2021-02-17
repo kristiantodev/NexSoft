@@ -14,16 +14,9 @@ class App extends Component {
         loading : false,
         index : "",
         peopleEdit : {},
-        currentPage: "home",
         linkGambar : ""
     }
 
-  }
-
-  goToPage = page => {
-    this.setState({
-      currentPage: page
-    })
   }
 
   componentDidMount() {

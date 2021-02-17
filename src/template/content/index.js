@@ -143,6 +143,7 @@ class Content extends Component {
                   <th>ID Album</th>
                   <th>ID Foto</th>
                    <th>Judul</th>
+                   <th>Foto</th>
                    <th>Action</th>
                   </tr>
                 </thead>
@@ -154,6 +155,7 @@ class Content extends Component {
                 <td align="center">{foto.albumId}</td>
                  <td>{foto.id}</td>
                 <td>{foto.title}</td>
+                <td><img src={foto.url} height={50} alt="Foto dari API" /></td>
                  <td>
                      <button onClick={() =>{this.props.getFoto(index)} }> Lihat Foto </button>
                  </td>
